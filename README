@@ -1,0 +1,12 @@
+Tema1 SO:
+
+Pentru a afla in care segment este eroarea am parcurs toate segmentele din exec si la gasirea acestuia
+i-am retinut pozitia in variabila poz.
+ Am creat variabilele var si start pentru a ne ajuta in lucrul cu adresele: in var retinem zona efectiva de memorie
+(diferenta intre info->si_addr si vaddr), iar in start memoria deja mapata la fix in pagini.
+Mapam zona de memorie si declaram buffer-ul  ce ne va ajuta la citire.
+In functie de dimensiunile zonei ce trebuie mapata intalnim mai multe cazuri:
+-daca depaseste file_size setam toata zona cu 0
+-daca ce mai poate insera o zona de memorie fara a se depasi file_size se face acest lucru
+-daca doar o parte din zona de memorie se poate insera, se lucreaza cu zona de memorie fara a depasi file_size,
+  iar restul se seteaza cu 0
